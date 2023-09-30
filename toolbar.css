@@ -5,6 +5,7 @@ body {
 .header {
     padding-top: 10px;
     background-color: #384048;
+    border-radius: 5px;
 }
 
 .title {
@@ -15,24 +16,26 @@ body {
 }
 
 .ribbon {
-    padding-top: 20px;
-    padding-bottom: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     text-align: center;
+    background-color: #b0d0d6;
 }
 
 .menu_item {
     padding-left: 3%;
     padding-right: 3%;
-    padding-bottom: 3%;
-    font-family: sans-serif;
-    font-size:  15px;
-    color: #94dbe7;
+    padding-bottom: 2%;
+    font-family: Arial, sans-serif;
+    font-size:  20px;
+    color: rgb(78, 78, 78);
 }
 
 .menu_item:hover {
     padding-top: 10px;
     background-color: #c3dae0;
     color: black;
+    border-radius: 5px;
 }
 
 a {
