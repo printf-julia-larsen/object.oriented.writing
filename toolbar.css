@@ -1,7 +1,7 @@
 html, body {
     background-color: #c3dae0;
     height: 100%;
-    margin: 0;      
+    flex-grow: 1;
 }
 
 .wrapper {
@@ -10,14 +10,12 @@ html, body {
     min-height: 100%;
 }
 
-main {
-    flex-grow: 1;
-}  
-
 .header {
     padding-top: 10px;
     background-color: #384048;
     border-radius: 5px;
+    z-index: 1; /* Increase the z-index to a value higher than the ribbon */
+
 }
 
 .title {
