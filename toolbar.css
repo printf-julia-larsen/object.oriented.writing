@@ -1,6 +1,18 @@
-body {
+html, body {
     background-color: #c3dae0;
+    height: 100%;
+    margin: 0;      
 }
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+main {
+    flex-grow: 1;
+}  
 
 .header {
     padding-top: 10px;
@@ -37,6 +49,15 @@ body {
     color: black;
     border-radius: 5px;
 }
+
+.footer {
+    background-color: #384048;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+    font-style: italic;
+  }
 
 a {
     text-decoration: none;
