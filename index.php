@@ -6,17 +6,7 @@
             <title>Home</title>
         </head>
         <body>
-            <div class="wrapper">
-                <div class="header">
-                    <h1 class="title">Object-Oriented Writing_</h1>
-                    <div class="ribbon">
-                        <a href="index.html"><span class="menu_item">Home</span></a>
-                        <a href="about.html"><span class="menu_item">About</span></a>
-                        <!--<a href="demo.html"><span class="menu_item">Demo</span></a>-->
-                        <a href="editor.html"><span class="menu_item">Editor</span></a>
-                        <a href="story-board.html"><span class="menu_item">Story Board</span></a>
-                    </div>
-                </div>
+            <?php include('common.php'); ?>
                 <div class="subject">
                     <h2>Purpose</h2>
                     <div class="paragraph_body">
@@ -28,9 +18,5 @@
                 <div class="image_wrapper">
                     <img src="writinig.jpg" alt="A book and pen">
                 </div>
-                <footer>
-                    <p class="footer">Copyright	&#64 2023 Project Studios</p>
-                </footer>
-        </div>
         </body>
     </html>

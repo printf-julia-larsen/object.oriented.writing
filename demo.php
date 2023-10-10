@@ -18,6 +18,6 @@
             </div>
         </body>
         <footer>
-            <p class="footer">Copyright © 2023 Project Studios</p>
+            <p class="footer">Copyright © 2023 ProjectStudios</p>
         </footer>
     </html>

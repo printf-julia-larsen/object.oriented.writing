@@ -6,16 +6,7 @@
             <title>Editor</title>
         </head>
         <body>
-            <div class="header">
-                <h1 class="title">Object-Oriented Writing_</h1>
-                <div class="ribbon">
-                    <a href="index.html"><span class="menu_item">Home</span></a>
-                    <a href="about.html"><span class="menu_item">About</span></a>
-                    <!--<a href="demo.html"><span class="menu_item">Demo</span></a>-->
-                    <a href="editor.html"><span class="menu_item">Editor</span></a>
-                    <a href="story-board.html"><span class="menu_item">Story Board</span></a>
-                </div>
-            </div>
+            <?php include('common.php'); ?>
             <h1 class="subject">Create a New Object</h1>
             <div class="canvas">
                 <div class="editor-item">
@@ -81,7 +72,4 @@
                 <button type="submit" class="submit-button">Submit</button>
             </div>
         </body>
-        <footer>
-            <p class="footer">Copyright &#64 2023 Project Studios</p>
-        </footer>
     </html>

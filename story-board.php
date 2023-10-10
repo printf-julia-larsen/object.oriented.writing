@@ -6,16 +6,7 @@
             <title>Story Board</title>
         </head>
         <body>
-            <div class="header">
-                <h1 class="title">Object-Oriented Writing_</h1>
-                <div class="ribbon">
-                    <a href="index.html"><span class="menu_item">Home</span></a>
-                    <a href="about.html"><span class="menu_item">About</span></a>
-                    <!--<a href="demo.html"><span class="menu_item">Demo</span></a>-->
-                    <a href="editor.html"><span class="menu_item">Editor</span></a>
-                    <a href="story-board.html"><span class="menu_item">Story Board</span></a>
-                </div>
-            </div>
+            <?php include('common.php'); ?>
             <div class="sidebar">
                 <div class="subtitle">
                     Your Objects
@@ -39,8 +30,5 @@
                     <p class="object-title">Create New Object</p>
                 </div>
             </div>
-            <footer>
-                <p class="footer">Copyright &#64 2023 Project Studios</p>
-            </footer>
         </body>
     </html>
