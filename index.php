@@ -22,6 +22,12 @@
                         </div>           
                     </div>
                 </div>
+                <div class="img_wrapper">
+                    <img src="coding.jpg"/>
+                    <img src="writinig.jpg"/>
+
+                </div>
+
                 <div class="column-view">
                     <div class="subject">
                         <h2>What is Object-Oriented Programming?</h2>

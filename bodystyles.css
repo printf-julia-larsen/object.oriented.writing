@@ -27,8 +27,7 @@ hr {
     margin-right: 10%;
     border: 1px solid #ccc;
     border-radius: 5px;
-    display: block;
-    
+    display: inline-block;
 }
 
 .paragraph_body {
@@ -158,6 +157,26 @@ hr {
 
 .subtext a {
     color: #4e6f9b;
+}
+
+.img_wrapper {
+    margin-top: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    width: 100%;
+}
+
+img:last-child {
+    margin-right: 0;
+}
+
+img {
+    border-radius: 2%;
+    width: 23%;
+    height: auto;
+    margin-right: 5%;
+
 }
 
 .subtext-wrapper {
