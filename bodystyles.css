@@ -6,8 +6,8 @@
     text-align: center;
 }
 
-span.subject {
-    color: #94dbe7;
+span.subject, a.subject {
+    color: #4e6f9b;
 }
 
 .subtitle {
@@ -28,6 +28,7 @@ hr {
     border: 1px solid #ccc;
     border-radius: 5px;
     display: block;
+    
 }
 
 .paragraph_body {
@@ -146,6 +147,32 @@ hr {
 .column-view {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+.subtext {
+    font-size: 17px;
+    line-height: 1.5;
+    color: #9c9c9c; 
+}
+
+.subtext a {
+    color: #4e6f9b;
+}
+
+.subtext-wrapper {
+    background-color: #b0d0d6;
+    box-shadow: 5px 0 5px rgba(0, 0, 0, 0.2);
+
+    border-radius: 5px; 
+
+    margin-left: 15%;
+    margin-top: 2%;
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    width: 70%;
 }
 
 .li-wrapper-spread {
@@ -171,6 +198,7 @@ li a {
     color: #4e6f9b;
 }
 
-li a:hover {
+a:hover {
     color: #94dbe7;
+    cursor: pointer;
 }

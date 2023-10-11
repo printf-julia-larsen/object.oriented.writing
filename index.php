@@ -11,7 +11,15 @@
                     <div class="paragraph_wrapper">
                         <p class="paragraph_body">
                             There are many phases in the creative writing process. A lot of these creative challenges can be solved with proper organization and visualization of concepts. The purpose of Object-Oriented Writing is to apply the concepts of object-oriented programming to creative writing organization. This will allow authors to organize characters, locations, story arcs, and more  by relating them to one another in a parent-child-sibling relationship. Authors can store metadata, relational data, and more about different writing concepts, or objects, to better help motivate the creative writing process.
-                        </p>                   
+                        </p>  
+                        <div class="subtext-wrapper">
+                            <p class="paragraph_body">
+                                🢖 Ready to jump in? <a class="subject">Get Started Now!</a> 🢔
+                            </p>
+                            <p class="subtext">
+                                or <a>Create an Account</a>
+                            </p> 
+                        </div>           
                     </div>
                 </div>
                 <div class="column-view">
