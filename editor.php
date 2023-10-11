@@ -1,12 +1,11 @@
 <!DOCTYPE html>
     <html>
         <head>
-            <link rel="stylesheet" href="toolbar.css">
             <link rel="stylesheet" href="bodystyles.css">
             <title>Editor</title>
         </head>
         <body>
-            <?php include('common.php'); ?>
+            <?php include('header.php'); ?>
             <h1 class="subject">Create a New Object</h1>
             <div class="canvas">
                 <div class="editor-item">
@@ -72,4 +71,5 @@
                 <button type="submit" class="submit-button">Submit</button>
             </div>
         </body>
+        <?php include('footer.php'); ?>
     </html>

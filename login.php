@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <link rel="stylesheet" href="toolbar.css">
+            <link rel="stylesheet" href="bodystyles.css">
+            <title>Home</title>
+        </head>
+        <body>
+        <?php include('header.php'); ?>
+            <h2>LOGIN</h2>
+        </body>
+        <?php include('footer.php'); ?>
+    </html>

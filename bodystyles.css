@@ -1,14 +1,16 @@
 
 .subject {
     margin-top: 5%;
-    font-family: Arial, sans-serif;
-    color: rgb(78, 78, 78);
+    color: #9ec5cc;
     font-size: 20px;
     text-align: center;
 }
 
+span.subject {
+    color: #94dbe7;
+}
+
 .subtitle {
-    font-family: Arial, sans-serif;
     color: rgb(206, 203, 203);
     font-size: 20px;
     text-align: center;
@@ -18,22 +20,20 @@ hr {
     width: 65%;
 }
 
-.paragraph_body {
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #333; 
-  background-color: #fff;
-  padding: 20px;
-  margin: 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+.paragraph_wrapper {
+    background-color: #fff;
+    padding: 30px;
+    margin-left: 10%;
+    margin-right: 10%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: block;
 }
 
-.image_wrapper {
-    display: flex; 
-    flex-wrap: wrap; 
-    max-width: 100%; 
+.paragraph_body {
+  font-size: 20px;
+  line-height: 1.5;
+  color: #6d6c6c; 
 }
 
 .canvas {
@@ -53,7 +53,6 @@ hr {
 }
 
 .editor-item label {
-    font-family: Arial, sans-serif;
     display: block; 
     font-size: 18px; 
     font-weight: bold; 
@@ -125,7 +124,6 @@ hr {
 }
 
 .object-title {
-    font-family: Arial, sans-serif;
     color: rgb(56, 56, 56);
     font-size: 17px;
     text-align: center;
@@ -137,11 +135,42 @@ hr {
     background-color: #ccc;
     align-items: center;
     font-size: 12px;
-    font-family: Arial, Helvetica, sans-serif;
     font-weight: 400;
     padding: 3px;
     width: fit-content;
     border: 1px solid darkgray;
     color: rgb(78, 78, 78);
     display: inline-block;
+}
+
+.column-view {
+    display: flex;
+    justify-content: space-between;
+}
+
+.li-wrapper-spread {
+    padding-bottom: 5%;
+    padding-top: 2%;
+}
+
+.li-wrapper-compact {
+    padding-bottom: 0.5%;
+    padding-top: 5px;
+}
+
+ol li{
+    display: block;
+    text-align: left;
+    margin-left: 10px;
+    color: #708090;
+    font-size: 18px;
+}
+
+li a {
+    margin-left: 22%;
+    color: #4e6f9b;
+}
+
+li a:hover {
+    color: #94dbe7;
 }

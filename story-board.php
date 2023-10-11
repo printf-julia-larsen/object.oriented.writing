@@ -1,12 +1,11 @@
 <!DOCTYPE html>
     <html>
         <head>
-            <link rel="stylesheet" href="toolbar.css">
             <link rel="stylesheet" href="bodystyles.css">
             <title>Story Board</title>
         </head>
         <body>
-            <?php include('common.php'); ?>
+            <?php include('header.php'); ?>
             <div class="sidebar">
                 <div class="subtitle">
                     Your Objects
@@ -31,4 +30,5 @@
                 </div>
             </div>
         </body>
+        <?php include('footer.php'); ?>
     </html>
