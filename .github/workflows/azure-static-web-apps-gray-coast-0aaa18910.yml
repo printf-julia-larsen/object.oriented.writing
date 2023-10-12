@@ -25,11 +25,6 @@ jobs:
         with:
           php-version: 8.2.11
 
-      - name: Install Composer
-        run: |
-          composer install
-        working-directory: src
-
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
