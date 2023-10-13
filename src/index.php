@@ -1,7 +1,7 @@
 <!DOCTYPE html>
     <html>
         <head>
-            <link rel="stylesheet" href="bodystyles.css">
+            <link rel="stylesheet" href="../styles/bodystyles.css">
             <title>Home</title>
         </head>
         <body>
@@ -23,8 +23,8 @@
                     </div>
                 </div>
                 <div class="img_wrapper">
-                    <img src="coding.jpg"/>
-                    <img src="writinig.jpg"/>
+                    <img src="../resources/coding.jpg"/>
+                    <img src="../resources/writinig.jpg"/>
 
                 </div>
 

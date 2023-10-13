@@ -1,8 +1,7 @@
 <!DOCTYPE html>
     <html>
         <head>
-            <link rel="stylesheet" href="toolbar.css">
-            <link rel="stylesheet" href="bodystyles.css">
+            <link rel="stylesheet" href="../styles/bodystyles.css">
             <title>Home</title>
         </head>
         <body>

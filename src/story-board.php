@@ -1,7 +1,7 @@
 <!DOCTYPE html>
     <html>
         <head>
-            <link rel="stylesheet" href="bodystyles.css">
+            <link rel="stylesheet" href="../styles/bodystyles.css">
             <title>Story Board</title>
         </head>
         <body>

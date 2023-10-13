@@ -1,7 +1,7 @@
-<link rel="stylesheet" href="toolbar.css"/>
+<link rel="stylesheet" href="../styles/toolbar.css"/>
     <div class="wrapper">
             <div class="header">
-                <img class="logo" src="oowlogo.png" alt="oow logo">
+                <img class="logo" src="../resources/oowlogo.png" alt="oow logo">
                 <div class="login-wrapper">
                     <a href="login.php" class="login-title">Login</a>
                     <a href="login.php" class="create-account">Create an Account</a>
