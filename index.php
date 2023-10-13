@@ -17,7 +17,7 @@
                                 🢖 Ready to jump in? <a class="subject">Get Started Now!</a> 🢔
                             </p>
                             <p class="subtext">
-                                or <a>Create an Account</a>
+                                or <a href="create-account.php">Create an Account</a>
                             </p> 
                         </div>           
                     </div>
