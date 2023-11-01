@@ -6,7 +6,19 @@
         </head>
         <body>
         <?php include('header.php'); ?>
-            <h2>LOGIN</h2>
+                        <div class="form_wrapper">
+                            <h3>Login</h3>
+                            <form method="POST" action="login_handler.php">
+                                <label for="username">Username</label>
+                                <input type="text" id="username" name="username">
+
+                                <label for="password">Password</label>
+                                <input type="text" id="password" name="password">
+
+                                <button type="submit" class="submit-button">Submit</button>
+                            </form>
+                            <p>Don't have an account? <a href="create-account.php">Create one!</a></p>
+                        </div>
         </body>
         <?php include('footer.php'); ?>
     </html>

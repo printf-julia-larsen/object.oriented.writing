@@ -4,7 +4,7 @@
                 <img class="logo" src="../resources/oowlogo.png" alt="oow logo">
                 <div class="login-wrapper">
                     <a href="login.php" class="login-title">Login</a>
-                    <a href="login.php" class="create-account">Create an Account</a>
+                    <a href="create-account.php" class="create-account">Create an Account</a>
                 </div> 
             </div>
             <div class="ribbon">

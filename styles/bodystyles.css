@@ -23,6 +23,7 @@ hr {
 .paragraph_wrapper {
     background-color: #fff;
     padding: 30px;
+    padding-bottom: 10px;
     margin-left: 10%;
     margin-right: 10%;
     border: 1px solid #ccc;
@@ -78,6 +79,17 @@ hr {
     text-align: right;
     margin-bottom: 10%;
 }
+
+.form_wrapper::after {
+    content: "";
+    text-align: left;
+    font-size: 20px;
+    line-height: 1.5;
+    color: #6d6c6c; 
+    display: block; 
+    margin-bottom: 10px;
+}
+
 
 .clear-button, .submit-button {
     padding: 10px 20px; 

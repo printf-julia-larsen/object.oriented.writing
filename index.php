@@ -14,7 +14,7 @@
                         </p>  
                         <div class="subtext-wrapper">
                             <p class="paragraph_body">
-                                🢖 Ready to jump in? <a class="subject">Get Started Now!</a> 🢔
+                                🢖 Ready to jump in? <a href="story-board.php" class="subject">Get Started Now!</a> 🢔
                             </p>
                             <p class="subtext">
                                 or <a href="create-account.php">Create an Account</a>
@@ -89,7 +89,7 @@
                         <p class="paragraph_body">If you are already familiar with how Object-oriented programming works, then perhaps you're ready to jump right in to the <a href="editor.php">Editor</a></p>
                         <p class="paragraph_body">Otherwise, it is reccomended that you dive further into how these concepts will be used in the <a href="about.php">About</a> page.</p>
 
-                        <p>But Wait! First <a href="login.php">Sign Up</a> for a Free Account in order to save and manage your objects.</p>
+                        <p>But Wait! First <a class="subject" href="create-account.php">Sign Up</a> for a Free Account in order to save and manage your objects.</p>
                     </div>
                 <div>
         </body>

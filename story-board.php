@@ -26,7 +26,7 @@
                     <div class="object-tag">Weapon</div>
                 </div>
                 <div class="object-wrapper">
-                    <p class="object-title">Create New Object</p>
+                    <a href="editor.php"><p class="object-title">Create New Object</p></a>
                 </div>
             </div>
         </body>
