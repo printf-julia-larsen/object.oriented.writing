@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
     <html>
         <head>
@@ -19,6 +20,16 @@
                             </form>
                             <p>Don't have an account? <a href="create-account.php">Create one!</a></p>
                         </div>
+        <div>
+        <?php 
+            if(isset($_SESSION['auth']))
+            {
+                if($_SESSION['auth'] === false){
+                    echo "Incorrect Username or Password";
+                }
+            }
+        ?>
+        </div>
         </body>
         <?php include('footer.php'); ?>
     </html>
