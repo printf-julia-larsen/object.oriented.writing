@@ -1,31 +1,22 @@
 <?php
+
 session_start();
+
+require_once('dao.php');
 
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-$usernameValid = false;
-$passwordValid = false;
+$dao = new Dao();
+$_SESSION['auth'] = $dao->authenticate($username, $password);
 
-// Check the database
-if ($username == 'julia') {
-  $usernameValid = true;
-  if ($password == 'password') {
-      $passwordValid = true;
-  }
-}
-
-if ($usernameValid == true && $passwordValid == true)
-{
-  $_SESSION['auth'] = true;
+if ($_SESSION['auth']) {
   header("Location: story-board.php");
-}
-
-
-else {
+  exit();
   
-  $_SESSION['auth'] = false;  
-  header("Location: login.php");
+} else {
 
+  $_SESSION['error_message'] = "Incorrect Username and Password";
+  header("Location: login.php");
   exit();
 }

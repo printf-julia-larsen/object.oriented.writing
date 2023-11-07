@@ -1,9 +1,16 @@
+<?php
+$loginText = "Login";
+//$loginText = (isset($_SESSION['auth']) && $_SESSION['auth']) ? 'Logout' : 'Login';
+?>
+
 <link rel="stylesheet" href="../styles/toolbar.css"/>
     <div class="wrapper">
             <div class="header">
                 <img class="logo" src="../resources/oowlogo.png" alt="oow logo">
                 <div class="login-wrapper">
-                    <a href="login.php" class="login-title">Login</a>
+                    <a href="login.php" class="login-title">
+                        <?php echo $loginText ?>
+                    </a>
                     <a href="create-account.php" class="create-account">Create an Account</a>
                 </div> 
             </div>

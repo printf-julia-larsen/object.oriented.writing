@@ -5,7 +5,7 @@
             <title>Editor</title>
         </head>
         <body>
-            <?php include('header.php'); ?>
+            <?php include_once('header.php'); ?>
             <h1 class="subject">Create a New Object</h1>
             <div class="canvas">
                 <div class="editor-item">

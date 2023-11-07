@@ -5,7 +5,7 @@
             <title>About</title>
         </head>
         <body>
-        <?php include('header.php'); ?>
+        <?php include_once('header.php'); ?>
             <div class="subject">
                 <h2>How to Use</h2>
                 <div class="paragraph_wrapper">

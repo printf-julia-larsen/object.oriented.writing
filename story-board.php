@@ -5,7 +5,7 @@
             <title>Story Board</title>
         </head>
         <body>
-            <?php include('header.php'); ?>
+            <?php include_once('header.php'); ?>
             <div class="sidebar">
                 <div class="subtitle">
                     Your Objects

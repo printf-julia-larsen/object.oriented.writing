@@ -6,30 +6,28 @@
             <title>Home</title>
         </head>
         <body>
-        <?php include('header.php'); ?>
-                        <div class="form_wrapper">
-                            <h3>Login</h3>
-                            <form method="POST" action="login_handler.php">
-                                <label for="username">Username</label>
-                                <input type="text" id="username" name="username">
+        <?php include_once('header.php'); ?>
+        <div class="paragraph_wrapper">
+            <h3>Login</h3>
+            <form method="POST" action="login_handler.php">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username">
 
-                                <label for="password">Password</label>
-                                <input type="text" id="password" name="password">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" />
 
-                                <button type="submit" class="submit-button">Submit</button>
-                            </form>
-                            <p>Don't have an account? <a href="create-account.php">Create one!</a></p>
-                        </div>
-        <div>
-        <?php 
-            if(isset($_SESSION['auth']))
-            {
-                if($_SESSION['auth'] === false){
-                    echo "Incorrect Username or Password";
+                <button type="submit" class="submit-button">Submit</button>
+            </form>
+            <p>Don't have an account? <a href="create-account.php">Create one!</a></p>
+            <div>
+                <?php 
+                if (isset($_SESSION['auth']) && $_SESSION['auth'] === false)
+                {
+                    echo $_SESSION['error_message'];
                 }
-            }
-        ?>
+                ?>
+            </div>
         </div>
         </body>
-        <?php include('footer.php'); ?>
+        <?php include_once('footer.php'); ?>
     </html>
