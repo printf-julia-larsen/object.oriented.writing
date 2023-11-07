@@ -11,12 +11,11 @@ $dao = new Dao();
 $_SESSION['auth'] = $dao->authenticate($username, $password);
 
 if ($_SESSION['auth']) {
+  unset($_SESSION['error_message']);
   header("Location: story-board.php");
   exit();
   
 } else {
-
-  $_SESSION['error_message'] = "Incorrect Username and Password";
   header("Location: login.php");
   exit();
 }

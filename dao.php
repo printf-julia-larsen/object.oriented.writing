@@ -65,22 +65,18 @@ class Dao {
         if ($password === $storedPassword) {
             return true;
         }
+
+        $_SESSION['error_message'] = "Incorrect Password";
+        return false;
+
       }
 
+      $_SESSION['error_message'] = "Incorrect Username";
       return false;
 
     } catch (PDOException $e) {
+      $_SESSION['error_message'] = "Something went wrong";
       return false;
     }
-
-    /*if ($conn->query("SELECT username, password FROM users")->fetchAll(PDO::FETCH_ASSOC) != null)
-    {
-        return true;
-        
-    } else {
-        return false;
-    }*/
-
-    //return ($username == "julia" && $password == 'password');
   }
 } 
