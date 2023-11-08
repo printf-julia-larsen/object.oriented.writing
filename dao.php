@@ -56,12 +56,12 @@ class Dao {
   }
 
 
-  public function saveUser ($username, $password)
+  public function saveUser($username, $password)
   {
     try {
       $conn = $this->getConnection();
       $saveQuery =
-          "INSERT INTO ObjectMetadata
+          "INSERT INTO users
           (username, password)
           VALUES
           (:username, :password)";
@@ -73,6 +73,7 @@ class Dao {
       if ($result) {
           return true;
       } else {
+          $_SESSION['error_message'] = "Error adding new user";
           return false;
       }
     } catch (PDOException $e) {

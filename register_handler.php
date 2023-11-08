@@ -9,8 +9,6 @@ unset($new_password);
 $new_username = $_POST['new_username'];
 $new_password = $_POST['new_password'];
 
-error_log("USERNAME::: " . $new_username . "PASSWORD:::" . $new_password);
-
 $success = false;
 
 $dao = new Dao();
@@ -21,4 +19,11 @@ if ($success === true)
     header("Location: editor.php");
     $_SESSION['auth'] = true;
     $_SESSION['user'] = $new_username;
+    exit();
+}
+else
+{
+    header("Location: create-account.php");
+    echo $_SESSION['error_message'];
+    $_SESSION['auth'] = false;
 }
