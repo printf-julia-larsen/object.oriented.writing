@@ -23,7 +23,7 @@
                             </form>
                             <div>
                                 <?php 
-                                if (isset($_SESSION['auth']) && $_SESSION['auth'] === false)
+                                if (isset($_SESSION['error_message']) && $_SESSION['auth'] === false)
                                 {
                                     echo $_SESSION['error_message'];
                                 }

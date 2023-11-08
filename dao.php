@@ -72,6 +72,11 @@ class Dao {
               $_SESSION['error_message'] = "Username already in use";
               return false;
           }
+          if (strlen($username) > 25)
+          {
+            $_SESSION['error_message'] = "Username must be 25 characters or less.";
+            return false;
+          }
   
           // Check password length
           if (strlen($password) < 6) {

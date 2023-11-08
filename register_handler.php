@@ -10,6 +10,7 @@ $new_username = $_POST['new_username'];
 $new_password = $_POST['new_password'];
 
 $success = false;
+$_SESSION['auth'] = false;
 
 $dao = new Dao();
 $success = $dao->saveUser($new_username, $new_password);
@@ -25,4 +26,5 @@ else
 {
     header("Location: create-account.php");
     $_SESSION['auth'] = false;
+    exit();
 }
