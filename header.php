@@ -1,17 +1,21 @@
 <?php
-$loginText = "Login";
-//$loginText = (isset($_SESSION['auth']) && $_SESSION['auth']) ? 'Logout' : 'Login';
+$loginText = "<a href=\"login.php\" class=\"login-title\">Login</a>";
+$subtext = "<a href=\"create-account.php\" class=\"create-account\">Create an Account</a>";
+
+if (isset($_SESSION['auth']) && $_SESSION['auth']) {
+    $loginText = "<a class=\"login-title\">{$_SESSION['user']}</a>";
+    $subtext = "<a href=\"logout.php\" class=\"create-account\">Logout</a>";
+}
 ?>
+
 
 <link rel="stylesheet" href="../styles/toolbar.css"/>
     <div class="wrapper">
             <div class="header">
                 <img class="logo" src="../resources/oowlogo.png" alt="oow logo">
                 <div class="login-wrapper">
-                    <a href="login.php" class="login-title">
-                        <?php echo $loginText ?>
-                    </a>
-                    <a href="create-account.php" class="create-account">Create an Account</a>
+                    <?php echo $loginText ?>
+                    <?php echo $subtext ?>
                 </div> 
             </div>
             <div class="ribbon">
