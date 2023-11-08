@@ -62,5 +62,5 @@ jobs:
         with:
           app-name: 'object-oriented-writing'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0C696A0A79624B5BB996257BB59CC123 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C83C04DE60AB49A7A04653AF9AF9F890 }}
           package: .
