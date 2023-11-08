@@ -6,39 +6,62 @@ class Dao {
   }
 
   public function deleteObject ($id) {
-    /*$conn = $this->getConnection();
-    $deleteComment =
-        "DELETE FROM comments
-        WHERE id = :id";
-    $q = $conn->prepare($deleteComment);
-    $q->bindParam(":id", $id);
-    $q->execute();*/
-  }
 
-  public function saveObject ($name, $comment) {
-      /*$conn = $this->getConnection();
-      $saveQuery =
-            "INSERT INTO comments
-            (name, comment)
-            VALUES
-            (:name, :comment)";
-        $q = $conn->prepare($saveQuery);
-        $q->bindParam(":name", $name);
-        $q->bindParam(":comment", $comment);
-        $q->execute();*/
   }
 
   public function getObject () {
-    /*$conn = $this->getConnection();
-    return $conn->query("SELECT name, comment, date_entered FROM comments ORDER BY date_entered desc")->fetchAll(PDO::FETCH_ASSOC);*/
+
   }
+
+  public function saveObject($title, $type, $labels, $descriptors, $lore, $externalLinks, $additionalInfo, $username)
+  {
+      try {
+          $conn = $this->getConnection();
+          $saveQuery = "INSERT INTO ObjectMetadata (title, type, labels, descriptors, lore, externalLinks, additionalInfo) 
+                        VALUES (:title, :type, :labels, :descriptors, :lore, :externalLinks, :additionalInfo)";
+          $q = $conn->prepare($saveQuery);
+          $q->bindParam(":title", $title);
+          $q->bindParam(":type", $type);
+          $q->bindParam(":labels", $labels);
+          $q->bindParam(":descriptors", $descriptors);
+          $q->bindParam(":lore", $lore);
+          $q->bindParam(":externalLinks", $externalLinks);
+          $q->bindParam(":additionalInfo", $additionalInfo);
+  
+          $result = $q->execute();
+
+          $objectID = $conn->lastInsertId();
+
+          $query = $conn->prepare("SELECT userID FROM users WHERE username = :username");
+          $query->bindParam(':username', $username);
+          $query->execute();
+          $user = $query->fetch(PDO::FETCH_ASSOC);
+
+
+          if ($user) {
+            $userID = $user['userID'];
+            
+            $ownerQuery = $conn->prepare("INSERT INTO ObjectOwners (userID, objectID) VALUES (:userID, :objectID)");
+            $ownerQuery->bindParam(":userID", $userID);
+            $ownerQuery->bindParam(":objectID", $objectID);
+            $success = $ownerQuery->execute();
+
+            if ($result && $success) {
+                return true;
+            }
+        }
+      } catch (PDOException $e) {
+          return false;
+      }
+  }
+
 
   public function saveUser ($username, $password)
   {
     try {
       $conn = $this->getConnection();
       $saveQuery =
-          "INSERT INTO users
+          "INSERT INTO ObjectMetadata
           (username, password)
           VALUES
           (:username, :password)";
@@ -48,14 +71,11 @@ class Dao {
       $result = $q->execute();
 
       if ($result) {
-          // Insertion was successful
           return true;
       } else {
-          // Insertion failed
           return false;
       }
     } catch (PDOException $e) {
-        // Handle any database connection or query errors here
         return false;
     }
   }
