@@ -6,7 +6,7 @@
         </head>
         <body>
             <?php include_once('header.php'); ?>
-            <h1 class="subject">Create a New Object</h1>
+            <h1 class="subtitle">Create a New Object</h1>
             <div class="canvas">
                 <div class="editor-item">
                     <label for="title">Title</label>

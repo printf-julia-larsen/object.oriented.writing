@@ -10,15 +10,16 @@
                         <div class="paragraph_body">
                             <h3>Create your Object-Oriented Writing Account</h3>
                             <p>To start writinig!</p>
-                            <form>
-                                <label for="username">Username</label><br>
-                                <input type="text" id="new_username" name="username"><br>
+                            <form method="POST" action="register_handler.php">
+                                <label for="new_username">Username</label><br>
+                                <input type="text" id="new_username" name="new_username"><br>
 
                                 <label for="password">Password</label><br>
-                                <input type="text" id="new_password" name="password">
+                                <input type="password" id="new_password" name="new_password">
+                                <br/>
+                                <a href="login.php">Sign in instead</a>
+                                <button type="submit" class="submit-button">Submit</button>
                             </form>
-                            <a href="login.php">Sign in instead</a>
-                            <button type="submit" class="submit-button">Submit</button>
                         </div>
                     </div>
         </body>

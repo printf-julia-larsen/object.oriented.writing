@@ -35,16 +35,29 @@ class Dao {
 
   public function saveUser ($username, $password)
   {
-    $conn = $this->getConnection();
-    $saveQuery =
-        "INSERT INTO users
-        (username, password)
-        VALUES
-        (:username, :password)";
-    $q = $conn->prepare($saveQuery);
-    $q->bindParam(":username", $username);
-    $q->bindParam(":password", $password);
-    $q->execute();
+    try {
+      $conn = $this->getConnection();
+      $saveQuery =
+          "INSERT INTO users
+          (username, password)
+          VALUES
+          (:username, :password)";
+      $q = $conn->prepare($saveQuery);
+      $q->bindParam(":username", $username);
+      $q->bindParam(":password", $password);
+      $result = $q->execute();
+
+      if ($result) {
+          // Insertion was successful
+          return true;
+      } else {
+          // Insertion failed
+          return false;
+      }
+    } catch (PDOException $e) {
+        // Handle any database connection or query errors here
+        return false;
+    }
   }
 
   public function authenticate ($username, $password) {
