@@ -58,29 +58,44 @@ class Dao {
 
   public function saveUser($username, $password)
   {
-    try {
-      $conn = $this->getConnection();
-      $saveQuery =
-          "INSERT INTO users
-          (username, password)
-          VALUES
-          (:username, :password)";
-      $q = $conn->prepare($saveQuery);
-      $q->bindParam(":username", $username);
-      $q->bindParam(":password", $password);
-      $result = $q->execute();
-
-      if ($result) {
-          return true;
-      } else {
-          $_SESSION['error_message'] = "Error adding new user";
+      try {
+          $conn = $this->getConnection();
+  
+          $checkQuery = "SELECT COUNT(*) FROM users WHERE username = :username";
+          $checkStmt = $conn->prepare($checkQuery);
+          $checkStmt->bindParam(":username", $username);
+          $checkStmt->execute();
+  
+          $userCount = $checkStmt->fetchColumn();
+  
+          if ($userCount > 0) {
+              $_SESSION['error_message'] = "Username already in use";
+              return false;
+          }
+  
+          // Check password length
+          if (strlen($password) < 6) {
+              $_SESSION['error_message'] = "Password must be at least 6 characters long";
+              return false;
+          }
+  
+          $saveQuery = "INSERT INTO users (username, password) VALUES (:username, :password)";
+          $q = $conn->prepare($saveQuery);
+          $q->bindParam(":username", $username);
+          $q->bindParam(":password", $password);
+          $result = $q->execute();
+  
+          if ($result) {
+              return true;
+          } else {
+              $_SESSION['error_message'] = "Error adding new user";
+              return false;
+          }
+      } catch (PDOException $e) {
           return false;
       }
-    } catch (PDOException $e) {
-        return false;
-    }
   }
-
+  
   public function authenticate ($username, $password) {
   
     try {

@@ -24,6 +24,5 @@ if ($success === true)
 else
 {
     header("Location: create-account.php");
-    echo $_SESSION['error_message'];
     $_SESSION['auth'] = false;
 }

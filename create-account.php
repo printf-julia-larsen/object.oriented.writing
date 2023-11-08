@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
     <html>
         <head>
@@ -20,6 +21,14 @@
                                 <a href="login.php">Sign in instead</a>
                                 <button type="submit" class="submit-button">Submit</button>
                             </form>
+                            <div>
+                                <?php 
+                                if (isset($_SESSION['auth']) && $_SESSION['auth'] === false)
+                                {
+                                    echo $_SESSION['error_message'];
+                                }
+                                ?>
+                            </div>
                         </div>
                     </div>
         </body>
