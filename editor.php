@@ -4,6 +4,7 @@
         <head>
             <link rel="stylesheet" href="../styles/editorStyles.css">
             <link rel="stylesheet" href="../styles/generalStyles.css">
+            <script src="handle-subform.js"></script>
             <title>Editor</title>
         </head>
         <body>
@@ -22,24 +23,24 @@
                 </span>
 
                 <label class="editor-label" for="title">Title</label>
-                <input type="text" id="title" name="title" class="small-text-box" required>
+                <input type="text" name="title" class="small-text-box" required>
 
                 <label class="editor-label" for="alias">Alias</label>
-                <input type="text" id="alias" name="alias" class="small-text-box" required>
+                <input type="text" name="alias" class="small-text-box">
             </div>
 
 
             <div class="editor-section">
                 <span class="heading-grouper">
                     <h4 class="section-label">Add Labels</h4>
-                    <p>Labels will help to concisely describe attrbutes about this object. Some good labels could be 'Character' or 'Location'</p>
-                    <?php echo "labels will show up here" ?>
+                    <p>Labels will help to concisely describe attrbutes about this object. Some good labels could be 'Character' or 'Location'.</p>
+                    <div id="labelsList"></div>
                 </span>
 
                 <label class="editor-label" for="labels">Labels</label>
                 <input type="text" id="labels" name="labels"  class="small-text-box">
 
-                <button type="submit" class="add-button">Add</button>
+                <button type="button" class="add-button" onclick="addLabel()">Add</button>
             </div>
 
 
@@ -48,8 +49,7 @@
                 <span class="heading-grouper">
                     <h4 class="section-label">Add Object Relations</h4>
                     <p>This is where you can connect this object to other objects you've created!</p>
-
-                    <span><?php echo "related objects will show up here" ?></span>
+                    <div id="relationList"></div>
                 </span>
 
                 <label class="editor-label" for="relation-title">Related Object</label>
@@ -58,7 +58,7 @@
                 <label class="editor-label" for="relation">Relationship</label>
                 <input type="text" id="relation" name="relation" class="small-text-box">
 
-                <button type="submit" class="add-button">Add</button>
+                <button type="button" class="add-button" onclick="addRelationship()">Add</button>
             </div>
 
 
@@ -66,6 +66,7 @@
             <div class="editor-section">
                 <span class="heading-grouper">
                     <h4 class="section-label">Add More Information</h4>
+                    <p>All of this information is optional, but will add more definition to your object.</p>
                 </span>
 
                 <label for="descriptors" class="editor-label">Descriptors</label>
@@ -80,9 +81,6 @@
                 <label for="info" class="editor-label">Additional Info</label>
                 <textarea type="text" id="info" name="info"  class="large-text-box"></textarea>
             </div>
-
-
-
 
             </div>
                 <div class="button-container" id="canvas-buttons">

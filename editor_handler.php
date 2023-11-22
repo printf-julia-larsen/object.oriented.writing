@@ -11,11 +11,17 @@ function getOptions() {
 }
 
 
-$new_title = $_POST['new_title'];
-$new_descriptors = $_POST['new_descriptors'];
-$related_objects = $_POST['related_objects'];
-$relationship = $_POST['relationship'];
+$new_title = $_POST['title'];
+$alias = $_POST['alias'];
+
+// get labels
+// get each relation title and its relation
+
+$descriptors = $_POST['descriptors'];
+$lore = $_POST['lore'];
 $info =  $_POST['info'];
+$links = $_POST['links'];
+
 $selectedItems = isset($_POST['selectedOptions']) ? $_POST['selectedOptions'] : [];
 $type = "object";
 $lore = "lore";
@@ -24,7 +30,7 @@ $external = "placeholder";
 $success = false;
 
 $dao = new Dao();
-$success = $dao->saveObject($new_title, $type, implode(', ', $selectedItems), $new_descriptors, $lore, $external, $info, $_SESSION['user']);
+$success = $dao->saveObject($title, $type, implode(', ', $selectedItems), $new_descriptors, $lore, $external, $info, $_SESSION['user']);
 
 if ($success === true)
 {
