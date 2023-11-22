@@ -1,0 +1,70 @@
+/* SECIONS */
+.editor-section {
+    display: block;
+    background-color: #c3dae0;
+    padding: 1%;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    border-radius: 5px; 
+}
+
+.editor-section p {
+    margin-top: 0; 
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: rgb(88, 88, 88);
+}
+
+.heading-grouper {
+    margin-right: 5%;
+    margin-left: 1%;
+    margin-bottom: 4%;
+    display: block;
+}
+
+/* LABELS */
+.editor-label {
+    font-size:  20px;
+    margin-left: 5%;
+    color: rgb(78, 78, 78);
+}
+
+.section-label {
+    font-size:  21px;
+    color: #384048;
+    margin-bottom: 5px;
+}
+
+/* CONTROLS */
+.add-button {
+    padding: 5px 5px; 
+    margin: 0 10px; 
+    font-size: 13px;
+    background-color: #0ebb98; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    color: #fff; 
+}
+
+/* TEXT BOXES */
+.small-text-box {
+    height: 25px;
+    display: block;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 1%;
+    margin-bottom: 4%;
+}
+
+.large-text-box {
+    width: 90%;
+    box-sizing: border-box;
+    min-height: 200px;
+    display: block;
+    resize: vertical;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 1%;
+    margin-bottom: 4%;
+}

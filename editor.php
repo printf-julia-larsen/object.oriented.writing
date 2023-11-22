@@ -2,68 +2,89 @@
 <!DOCTYPE html>
     <html>
         <head>
-            <link rel="stylesheet" href="../styles/bodystyles.css">
+            <link rel="stylesheet" href="../styles/editorStyles.css">
+            <link rel="stylesheet" href="../styles/generalStyles.css">
             <title>Editor</title>
         </head>
         <body>
             <?php include_once('header.php'); ?>
-            <h1 class="subtitle">Create a New Object</h1>
+
+            <h1 class="subject">Create a New Object</h1>
+
             <form method="POST" action="editor_handler.php">
-                <div class="canvas">
-                    <div class="editor-item">
-                        <label for="new_title">Title</label>
-                        <textarea id="new_title" name="new_title"></textarea>
-                    </div>
-                    <div class="editor-item">
-                        <label for="new_descriptors">Descriptors</label>
-                        <textarea id="new_descriptors" name="new_descriptors"></textarea>
-                    </div>
-                    <div class="editor-item">
-                        <label for="related_objects">Related Objects</label>
-                        <textarea id="related_objects" name="related_objects"></textarea>
-                        <label for="relationship">Relationship</label>
-                        <select name="relationship" id="relationship"> 
-                            <option value="none">none</option> 
-                            <option value="parent">Parent</option> 
-                            <option value="child">Child</option> 
-                            <option value="sibling">Sibling</option> 
-                        </select>
-                    </div>
-                    <div class="editor-item">
-                        <label for="label">Labels</label>
-                        <select name="label1" id="label"> 
-                            <option value="empty">--</option> 
-                            <option value="character">Character</option> 
-                            <option value="location">Location</option> 
-                            <option value="item">Item</option> 
-                            <option value="arc">Story Arc</option> 
-                            <option value="tone">Tone</option> 
-                            <option value="Narritive">Narrative</option> 
-                        </select>
-                        <select name="label2" id="label"> 
-                            <option value="empty">--</option> 
-                            <option value="character">Character</option> 
-                            <option value="location">Location</option> 
-                            <option value="item">Item</option> 
-                            <option value="arc">Story Arc</option> 
-                            <option value="tone">Tone</option> 
-                            <option value="Narritive">Narrative</option> 
-                        </select>
-                        <select name="label3" id="labels"> 
-                            <option value="empty">--</option> 
-                            <option value="character">Character</option> 
-                            <option value="location">Location</option> 
-                            <option value="item">Item</option> 
-                            <option value="arc">Story Arc</option> 
-                            <option value="tone">Tone</option> 
-                            <option value="Narritive">Narrative</option> 
-                        </select>
-                    </div>
-                    <div class="editor-item">
-                        <label for="info">Additional Info</label>
-                        <textarea id="big-textarea" name="info" rows="10"></textarea>
-                    </div>
-                </div>
+            <div class="canvas">
+
+
+            <div class="editor-section">
+                <span class="heading-grouper">
+                    <h4 class="section-label">Title</h4>
+                    <p>The title will be the main identifier of your object. You can choose to add an alias.</p>
+                </span>
+
+                <label class="editor-label" for="title">Title</label>
+                <input type="text" id="title" name="title" class="small-text-box" required>
+
+                <label class="editor-label" for="alias">Alias</label>
+                <input type="text" id="alias" name="alias" class="small-text-box" required>
+            </div>
+
+
+            <div class="editor-section">
+                <span class="heading-grouper">
+                    <h4 class="section-label">Add Labels</h4>
+                    <p>Labels will help to concisely describe attrbutes about this object. Some good labels could be 'Character' or 'Location'</p>
+                    <?php echo "labels will show up here" ?>
+                </span>
+
+                <label class="editor-label" for="labels">Labels</label>
+                <input type="text" id="labels" name="labels"  class="small-text-box">
+
+                <button type="submit" class="add-button">Add</button>
+            </div>
+
+
+
+            <div class="editor-section">
+                <span class="heading-grouper">
+                    <h4 class="section-label">Add Object Relations</h4>
+                    <p>This is where you can connect this object to other objects you've created!</p>
+
+                    <span><?php echo "related objects will show up here" ?></span>
+                </span>
+
+                <label class="editor-label" for="relation-title">Related Object</label>
+                <input type="text" id="relation-title" name="relation-title" class="small-text-box">
+
+                <label class="editor-label" for="relation">Relationship</label>
+                <input type="text" id="relation" name="relation" class="small-text-box">
+
+                <button type="submit" class="add-button">Add</button>
+            </div>
+
+
+
+            <div class="editor-section">
+                <span class="heading-grouper">
+                    <h4 class="section-label">Add More Information</h4>
+                </span>
+
+                <label for="descriptors" class="editor-label">Descriptors</label>
+                <textarea type="text" id="descriptors" name="descriptors" class="large-text-box"></textarea>
+
+                <label for="lore" class="editor-label">Lore</label>
+                <textarea type="text" id="lore" name="lore" class="large-text-box"></textarea>
+                
+                <label for="links" class="editor-label">External Links</label>
+                <textarea type="text" id="links" name="links" class="large-text-box"></textarea>
+
+                <label for="info" class="editor-label">Additional Info</label>
+                <textarea type="text" id="info" name="info"  class="large-text-box"></textarea>
+            </div>
+
+
+
+
+            </div>
                 <div class="button-container" id="canvas-buttons">
                     <button type="button" class="clear-button">Clear</button>
                     <button type="submit" class="submit-button">Submit</button>

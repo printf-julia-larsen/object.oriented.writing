@@ -1,0 +1,47 @@
+/* BACKGROUND STYLES */
+.canvas {
+    background-color: white;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 2px;
+    padding: 5%;
+}
+
+
+/* TEXT STYLES */
+.subject {
+    margin-top: 5%;
+    color: #9ec5cc;
+    font-size: 20px;
+    text-align: center;
+}
+
+
+/* BUTTON STYLES */
+.button-container {
+    margin-top: 20px; 
+    text-align: left;
+}
+
+.button-container, #canvas-buttons {
+    margin-right: 10%;
+    text-align: right;
+    margin-bottom: 10%;
+}
+
+.clear-button, .submit-button {
+    padding: 10px 20px; 
+    margin: 0 10px; 
+    font-size: 16px;
+    background-color: #fff;
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    cursor: pointer; 
+}
+
+.submit-button {
+    background-color: #0ebb98; 
+    color: #fff; 
+    border: none; 
+}
+
