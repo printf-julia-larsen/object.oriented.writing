@@ -3,15 +3,8 @@
 session_start();
 require_once('dao.php');
 
-function getOptions() {
-    $items = ["Item1", "Item2", "Item3", "Item4"];
-    foreach ($items as $item) {
-        echo "<option value='$item'>$item</option>";
-    }
-}
 
-
-$new_title = $_POST['title'];
+$title = $_POST['title'];
 $alias = $_POST['alias'];
 
 // get labels
@@ -22,15 +15,19 @@ $lore = $_POST['lore'];
 $info =  $_POST['info'];
 $links = $_POST['links'];
 
-$selectedItems = isset($_POST['selectedOptions']) ? $_POST['selectedOptions'] : [];
 $type = "object";
 $lore = "lore";
 $external = "placeholder";
 
+$relationshipData = json_decode($_POST['relationshipData'], true);
+$labelData = json_decode($_POST['labelData'], true);
+
 $success = false;
 
 $dao = new Dao();
-$success = $dao->saveObject($title, $type, implode(', ', $selectedItems), $new_descriptors, $lore, $external, $info, $_SESSION['user']);
+$success = $dao->saveObject($title, $type, $labelData, $descriptors, $lore, $external, $info, $_SESSION['user']);
+
+$success = true;
 
 if ($success === true)
 {

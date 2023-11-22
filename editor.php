@@ -84,8 +84,8 @@
 
             </div>
                 <div class="button-container" id="canvas-buttons">
-                    <button type="button" class="clear-button">Clear</button>
-                    <button type="submit" class="submit-button">Submit</button>
+                    <button type="button" class="clear-button" onclick="clearForm()">Clear</button>
+                    <button type="submit" class="submit-button" onclick="submitForm()">Submit</button>
                 </div>
             </form>
         </body>
