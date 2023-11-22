@@ -9,9 +9,54 @@ class Dao {
 
   }
 
-  public function getObject () {
+  public function getObjectByID($objectID) {
+    try {
+        $conn = $this->getConnection();
 
+        $query = $conn->prepare("SELECT * FROM ObjectMetadata WHERE objectID = :objectID");
+        $query->bindParam(':objectID', $objectID);
+        $query->execute();
+
+        $object = $query->fetch(PDO::FETCH_ASSOC);
+
+        return $object;
+
+    } catch (PDOException $e) {
+        return false;
+    }
+}
+
+public function setObjectRelation($parentObjectID, $childObjectID, $relation) {
+  try {
+    $conn = $this->getConnection();
+    $saveQuery = "INSERT INTO ObjectRelations (parentObjectID, childObjectID, relation) 
+                  VALUES (:parentObjectID, :childObjectID, :relation)";
+    $q = $conn->prepare($saveQuery);
+    $q->bindParam(":parentObjectID", $title);
+    $q->bindParam(":childObjectID", $type);
+    $q->bindParam(":relation", $labels);
+
+    $result = $q->execute();
+    return $result;
+
+  } catch (PDOException $e) {
+    return false;
   }
+}
+
+public function getObjectRelation($parentObjectID) {
+  try {
+    $conn = $this->getConnection();
+
+    $query = $conn->prepare("SELECT * FROM ObjectRelations WHERE parentObjectID = :parentObjectID");
+    $query->bindParam(':parentObjectID', $parentObjectID);
+    $query->execute();
+
+  } catch (PDOException $e) {
+    return false;
+  }
+}
+
 
   public function saveObject($title, $type, $labels, $descriptors, $lore, $externalLinks, $additionalInfo, $username)
   {
