@@ -47,6 +47,8 @@
     font-size: 17px;
     text-align: center;
     font-weight: 500;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .object-tag {
@@ -60,4 +62,12 @@
     border: 1px solid darkgray;
     color: rgb(78, 78, 78);
     display: inline-block;
+    margin-top: 7%;
+}
+
+/* TEXT */
+.alias {
+    text-align: center;
+    font-size: 14px;
+    color: rgb(90, 89, 89);
 }

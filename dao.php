@@ -66,9 +66,9 @@ public function setObjectRelation($parentObjectID, $childObjectID, $relation) {
     $saveQuery = "INSERT INTO ObjectRelations (parentObjectID, childObjectID, relation) 
                   VALUES (:parentObjectID, :childObjectID, :relation)";
     $q = $conn->prepare($saveQuery);
-    $q->bindParam(":parentObjectID", $title);
-    $q->bindParam(":childObjectID", $type);
-    $q->bindParam(":relation", $labels);
+    $q->bindParam(":parentObjectID", $parentObjectID);
+    $q->bindParam(":childObjectID", $childObjectID);
+    $q->bindParam(":relation", $relation);
 
     $result = $q->execute();
     return $result;

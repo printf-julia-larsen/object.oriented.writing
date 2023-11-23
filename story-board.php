@@ -28,12 +28,6 @@
                             if ($objectMetadata) {
                                 $title = $objectMetadata['title'];
 
-                                if ($objectMetadata['alias']) {
-                                    ?>
-                                    <div><?php $objectMetadata['alias']; ?></div>
-                                    <?php
-                                }
-
                                 $labelsString = $objectMetadata['labels'];
                         
                                 if ($labelsString) {
@@ -45,8 +39,12 @@
                                 ?>
                                 <div class="object-wrapper">
                                     <p class="object-title"><?php echo $title; ?></p>
-                                    
                                     <?php
+                                        if ($objectMetadata['alias']) {
+                                            ?>
+                                            <div class="alias"><?php echo $objectMetadata['alias']; ?></div>
+                                            <?php
+                                        }
                                         foreach ($labelsArray as $label) {
                                             ?>
                                             <div class="object-tag"><?php echo trim($label); ?></div>
