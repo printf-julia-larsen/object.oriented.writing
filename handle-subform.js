@@ -76,7 +76,6 @@ function clearForm() {
     var labelsList = document.getElementById("labelsList");
     labelsList.innerHTML = "";
 
-    // Optionally, clear other form fields as needed
     document.getElementById("relation-title").value = "";
     document.getElementById("relation").value = "";
     relationshipData = [];

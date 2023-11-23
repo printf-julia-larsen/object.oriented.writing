@@ -15,17 +15,13 @@ $lore = $_POST['lore'];
 $info =  $_POST['info'];
 $links = $_POST['links'];
 
-$type = "object";
-$lore = "lore";
-$external = "placeholder";
-
 $relationshipData = json_decode($_POST['relationshipData'], true);
 $labelData = json_decode($_POST['labelData'], true);
 
 $success = false;
 
 $dao = new Dao();
-$success = $dao->saveObject($title, $type, $labelData, $descriptors, $lore, $external, $info, $_SESSION['user']);
+$success = $dao->saveObject($title, $alias, $labelData, $descriptors, $lore, $links, $info, $_SESSION['user']);
 
 $success = true;
 

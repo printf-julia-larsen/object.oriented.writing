@@ -9,6 +9,40 @@ class Dao {
 
   }
 
+  public function getUserByUsername($username) {
+    try {
+        $conn = $this->getConnection();
+
+        $query = $conn->prepare("SELECT userID FROM users WHERE username = :username");
+        $query->bindParam(':username', $username);
+        $query->execute();
+
+        $userID = $query->fetch(PDO::FETCH_COLUMN);
+
+        return $userID;
+
+    } catch (PDOException $e) {
+        return false;
+    }
+}
+
+  public function getUsersObjects($userID) {
+    try {
+      $conn = $this->getConnection();
+
+      $query = $conn->prepare("SELECT objectID FROM ObjectOwners WHERE userID = :userID");
+      $query->bindParam(':userID', $userID);
+      $query->execute();
+
+      $object = $query->fetchAll(PDO::FETCH_ASSOC);
+
+      return $object;
+
+    } catch (PDOException $e) {
+        return false;
+    }
+  }
+
   public function getObjectByID($objectID) {
     try {
         $conn = $this->getConnection();
@@ -58,15 +92,15 @@ public function getObjectRelation($parentObjectID) {
 }
 
 
-  public function saveObject($title, $type, $labels, $descriptors, $lore, $externalLinks, $additionalInfo, $username)
+  public function saveObject($title, $alias, $labels, $descriptors, $lore, $externalLinks, $additionalInfo, $username)
   {
       try {
           $conn = $this->getConnection();
-          $saveQuery = "INSERT INTO ObjectMetadata (title, type, labels, descriptors, lore, externalLinks, additionalInfo) 
-                        VALUES (:title, :type, :labels, :descriptors, :lore, :externalLinks, :additionalInfo)";
+          $saveQuery = "INSERT INTO ObjectMetadata (title, alias, labels, descriptors, lore, externalLinks, additionalInfo) 
+                        VALUES (:title, :alias, :labels, :descriptors, :lore, :externalLinks, :additionalInfo)";
           $q = $conn->prepare($saveQuery);
           $q->bindParam(":title", $title);
-          $q->bindParam(":type", $type);
+          $q->bindParam(":alias", $alias);
           $q->bindParam(":labels", $labels);
           $q->bindParam(":descriptors", $descriptors);
           $q->bindParam(":lore", $lore);
