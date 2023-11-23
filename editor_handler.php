@@ -21,7 +21,7 @@ $labelData = json_decode($_POST['labelData'], true);
 $success = false;
 
 $dao = new Dao();
-$success = $dao->saveObject($title, $alias, $labelData, $descriptors, $lore, $links, $info, $_SESSION['user']);
+$success = $dao->saveObject($title, $alias, implode(', ', $labelData), $descriptors, $lore, $links, $info, $_SESSION['user']);
 
 $success = true;
 
