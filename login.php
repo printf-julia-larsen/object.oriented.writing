@@ -3,7 +3,7 @@
     <html>
         <head>
             <link rel="stylesheet" href="../styles/bodystyles.css">
-            <title>Home</title>
+            <title>Login</title>
         </head>
         <body>
         <?php include_once('header.php'); ?>

@@ -23,14 +23,8 @@ $dao = new Dao();
 $success = $dao->saveObject($title, $alias, implode(', ', $labelData), $descriptors, $lore, $links, $info, $_SESSION['user']);
 
 $success = true;
+$_SESSION['success'] = $success;
+setcookie("last_created_title", $title, time() + 3600, "/");
 
-if ($success === true)
-{
-    header("Location: editor.php");
-    exit();
-
-} else {
-
-    header("Location: index.php");
-    exit();
-}
+header("Location: created-object-handler.php");
+exit();

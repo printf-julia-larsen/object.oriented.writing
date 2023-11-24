@@ -7,6 +7,16 @@
     padding: 5%;
 }
 
+.paragraph_body {
+    font-size: 20px;
+    line-height: 1.5;
+    color: #6d6c6c; 
+}
+
+.paragraph-adjustment {
+    margin-top: 1%;
+}
+
 /* TEXT STYLES */
 .subject {
     margin-top: 5%;
@@ -15,6 +25,11 @@
     text-align: center;
 }
 
+.subtitle {
+    color: rgb(206, 203, 203);
+    font-size: 20px;
+    text-align: center;
+}
 
 /* BUTTON STYLES */
 .button-container {
@@ -44,3 +59,13 @@
     border: none; 
 }
 
+/* LINKS */
+a {
+    color: #b0d0d6;;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+a:hover {
+    color: #d2faff;
+}
