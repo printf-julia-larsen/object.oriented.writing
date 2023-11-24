@@ -14,6 +14,13 @@ function createDetailedDisplay(objectMetadata) {
 
     var resultSection = document.querySelector('.canvas');
 
+    var removeButton = createElement("-", 'button');
+    containerElement.appendChild(removeButton);
+
+    removeButton.addEventListener('click', function () {
+        resultSection.removeChild(containerElement);
+    });
+    
     function createElement(content, className) {
         if (content) {
             var element = document.createElement('div');
