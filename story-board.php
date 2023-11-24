@@ -5,7 +5,6 @@
             <link rel="stylesheet" href="../styles/bodystyles.css">
             <link rel="stylesheet" href="../styles/generalStyles.css">
             <link rel="stylesheet" href="../styles/storyboardStyles.css">
-
             <title>Story Board</title>
         </head>
         <body>
@@ -35,9 +34,9 @@
                                 } else {
                                     $labelsArray = [];
                                 }
-
+                                    $objectMetadataJSON = json_encode($objectMetadata);
                                 ?>
-                                <div class="object-wrapper">
+                                <div class="object-wrapper" object-metadata="<?php echo htmlspecialchars($objectMetadataJSON); ?>">
                                     <p class="object-title"><?php echo $title; ?></p>
                                     <?php
                                         if ($objectMetadata['alias']) {
@@ -56,7 +55,7 @@
                             }
                         }
                         ?>                
-                    <div class="object-wrapper">
+                    <div class="create-new-object">
                         <a href="editor.php"><p class="object-title">Create New Object</p></a>
                     </div>
                 </div>
@@ -64,5 +63,6 @@
             </div>
             
         </body>
+        <script src="../scripts/handle-objects.js"></script>
         <?php include('footer.php'); ?>
     </html>

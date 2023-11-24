@@ -4,7 +4,7 @@
         <head>
             <link rel="stylesheet" href="../styles/editorStyles.css">
             <link rel="stylesheet" href="../styles/generalStyles.css">
-            <script src="handle-subform.js"></script>
+            <script src="../scripts/handle-subform.js"></script>
             <title>Editor</title>
         </head>
         <body>
