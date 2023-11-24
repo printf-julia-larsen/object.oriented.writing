@@ -7,7 +7,7 @@
         </head>
         <body>
         <?php include_once('header.php'); ?>
-        <?php echo isset($_SESSION['redir_message']) ? "<h5 class=\"subject\">" . $_SESSION['redir_message'] . "</h5>" : ""; ?>
+        <?php echo isset($_SESSION['redir_message']) ? "<h5 class=\"large-warning\">" . $_SESSION['redir_message'] . "</h5>" : ""; ?>
         <div class="paragraph_wrapper">
             <h3>Login</h3>
             <form method="POST" action="login_handler.php">

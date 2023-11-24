@@ -3,7 +3,6 @@
 session_start();
 require_once('dao.php');
 
-
 $title = $_POST['title'];
 $alias = $_POST['alias'];
 

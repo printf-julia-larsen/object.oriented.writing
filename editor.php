@@ -8,7 +8,15 @@
             <title>Editor</title>
         </head>
         <body>
-            <?php include_once('header.php'); ?>
+            <?php include_once('header.php'); 
+
+                // check if user is logged in
+                if (!isset($_SESSION['auth']) || $_SESSION['auth'] === false) {
+                $_SESSION['redir_message'] = "You must be logged in to access the Editor!";
+                header("Location: login.php");
+                exit();
+                }
+            ?>
 
             <h1 class="subject">Create a New Object</h1>
 
