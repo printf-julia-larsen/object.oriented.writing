@@ -8,7 +8,7 @@ if (isset($_SESSION['auth']) && $_SESSION['auth']) {
 }
 ?>
 
-
+<link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
 <link rel="stylesheet" href="../styles/toolbar.css"/>
     <div class="wrapper">
             <div class="header">

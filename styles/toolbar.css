@@ -2,7 +2,7 @@ html, body {
     background-color: #384048;
     height: 100%;
     flex-grow: 1;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, sans-serif;
+    font-family: 'Nunito';
 }
 
 .wrapper {
