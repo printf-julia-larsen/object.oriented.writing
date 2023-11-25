@@ -107,10 +107,10 @@
 
 /* BUTTON */
 .button {
-    width: 30px;
-    height: 30px; 
-    border: 1px solid #94dbe7;
-    color: #94dbe7;
+    width: 20px;
+    height: 20px; 
+    border: 1px solid #8e8f8f;
+    color: #8e8f8f;
     border-radius: 50%; 
     cursor: pointer; 
     display: flex;
@@ -122,6 +122,6 @@
 }
 
 .button:hover {
-    border: 1px solid #8e8f8f;
-    color:  #8e8f8f;
+    border: 1px solid #94dbe7;
+    color:  #94dbe7;
 }
