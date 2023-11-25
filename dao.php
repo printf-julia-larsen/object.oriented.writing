@@ -5,9 +5,28 @@ class Dao {
     return new PDO("sqlsrv:server = tcp:projectstudios-db.database.windows.net,1433; Database = object-oriented-writing", "verdantAdminOfficial", "curtisIsIncrediblyCute!");
   }
 
-  public function deleteObject ($id) {
+public function deleteObject ($objectID) {
+  try {
+      $conn = $this->getConnection();
 
+      $query = $conn->prepare("DELETE FROM ObjectMetadata WHERE objectID = :objectID");
+      $query->bindParam(':objectID', $objectID);
+      $success = $query->execute();
+
+      $query = $conn->prepare("DELETE FROM ObjectOwners WHERE objectID = :objectID");
+      $query->bindParam(':objectID', $objectID);
+      $success = $query->execute() && $success;
+
+      $query = $conn->prepare("DELETE FROM ObjectRelations WHERE parentObjectID = :objectID");
+      $query->bindParam(':objectID', $objectID);
+      $success = $query->execute() && $success;
+
+      return $success;
+
+  } catch (PDOException $e) {
+      return false;
   }
+}
 
   public function getUserByUsername($username) {
     try {
@@ -90,7 +109,6 @@ public function getObjectRelation($parentObjectID) {
     return false;
   }
 }
-
 
   public function saveObject($title, $alias, $labels, $descriptors, $lore, $externalLinks, $additionalInfo, $username)
   {

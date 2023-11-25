@@ -20,6 +20,7 @@
                     
                     <?php
                         $usersObjects = $dao->getUsersObjects($userID);
+                        $objectRelations = $dao->getObjectRelation($userID);
 
                         foreach ($usersObjects as $userObject) {
                             $objectMetadata = $dao->getObjectByID($userObject['objectID']);
@@ -35,8 +36,9 @@
                                     $labelsArray = [];
                                 }
                                     $objectMetadataJSON = json_encode($objectMetadata);
+                                    $objectRelationJSON = json_encode($objectRelations);
                                 ?>
-                                <div class="object-wrapper" object-metadata="<?php echo htmlspecialchars($objectMetadataJSON); ?>">
+                                <div class="object-wrapper" object-metadata="<?php echo htmlspecialchars($objectMetadataJSON); ?>" object-relations="<?php echo htmlspecialchars($objectRelationJSON) ?>" id="<?php echo "element_" . $objectMetadata['objectID']; ?>">
                                     <p class="object-title"><?php echo $title; ?></p>
                                     <?php
                                         if ($objectMetadata['alias']) {

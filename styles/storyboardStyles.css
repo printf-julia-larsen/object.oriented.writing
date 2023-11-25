@@ -10,6 +10,7 @@
     margin-right: 3%;
     display: flex;
     flex-wrap: wrap; 
+    overflow: auto;
 }
 
 /* SIDEBAR */
@@ -102,11 +103,25 @@
 
 .object-title-expanded {
     color:#94dbe7;
-    font-size: 20px;
+    font-size: 22px;
 }
 
-/* BUTTON */
-.button {
+.alias-expanded {
+    color: rgb(56, 56, 56);
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.expanded-heading {
+    margin-top: 5%;
+    color:#8e8f8f;
+    font-size: 17px;
+}
+
+/* BUTTONS */
+.remove-button {
     width: 20px;
     height: 20px; 
     border: 1px solid #8e8f8f;
@@ -121,7 +136,29 @@
     float: right;
 }
 
-.button:hover {
+.remove-button:hover {
     border: 1px solid #94dbe7;
     color:  #94dbe7;
+}
+
+.delete-button {
+    padding: 10px 20px; 
+    margin: 0 10px; 
+    font-size: 12px;
+    background-color: #be1212;
+    color: white;
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    width: 10%;
+    text-align: center;
+}
+
+/* extra */
+.expanded-line {
+    width: 100%;
+}
+
+.expanded-info {
+    padding-bottom: 3%;
 }
