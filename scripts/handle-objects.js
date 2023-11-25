@@ -17,7 +17,6 @@ function createDetailedDisplay(objectMetadata) {
     console.log(elementId);
 
     containerElement.classList.add("detailed-display-container");
-    //containerElement.id = elementId;
 
     var resultSection = document.querySelector('.canvas');
     var deleteButton = createElement("Delete", "delete-button");
@@ -25,7 +24,8 @@ function createDetailedDisplay(objectMetadata) {
     deleteButton.addEventListener('click', function () {
         // Perform AJAX request to PHP script for deletion
         var objectId = objectMetadata.objectID;
-        deleteObject(objectId, elementId, resultSection, containerElement);
+        resultSection.removeChild(containerElement);
+        deleteObject(objectId, elementId);
     });
 
     containerElement.id 
@@ -95,7 +95,7 @@ function createElement(title, className) {
 }
 
 // here's my ajax stuff
-function deleteObject(objectId, elementID, resultSection, containerElement) {
+function deleteObject(objectId, elementID) {
 
     var url = 'object_delete_handler.php';
     var params = 'objectId=' + objectId;
@@ -107,9 +107,6 @@ function deleteObject(objectId, elementID, resultSection, containerElement) {
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             console.log(xhr.responseText);
-
-            resultSection.removeChild(containerElement);
-
             var elementToRemove = document.getElementById(elementID);
 
             if (elementToRemove) {
