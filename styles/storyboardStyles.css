@@ -78,6 +78,7 @@
 .detailed-display-container {
     position: relative;
     border: 1px solid #384048;
+    background-color: #cce2e6;
     padding: 1%;
     border-radius: 5px;
     margin: 0;
@@ -103,7 +104,8 @@
 }
 
 .object-title-expanded {
-    color:#94dbe7;
+    color:#314e53;
+    font-weight: 600;
     font-size: 22px;
 }
 
@@ -159,6 +161,10 @@
     padding: 5px 10px;
     bottom: 1%;
     right: 0;
+}
+
+.delete-button:hover {
+    background-color: #d62121;
 }
 
 /* extra */

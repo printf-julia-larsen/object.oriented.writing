@@ -21,7 +21,7 @@
                             <?php
                         } else {
                             ?>
-                            <div class="subtitle error-message">Something went wrong. Object was not created.</div>
+                            <div class="subtitle error-message"><?php echo isset($_SESSION['error_message']) ? $_SESSION['error_message'] : "Something unexpected happened. Object was not created."; ?></div>
                             <?php                        
                         }
                     ?>
