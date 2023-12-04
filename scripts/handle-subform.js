@@ -30,28 +30,59 @@ function addRelationship() {
     var relationship = relationshipInput.value.trim();
 
     if (title !== "" && relationship !== "") {
-
-        var relationshipObject = {
-            title: title,
-            relationship: relationship
-        };
-
-        relationshipData.push(relationshipObject);
-
-        var labelsList = document.getElementById("relationList");
-        var newRelationship = document.createElement("div");
-
-        newRelationship.innerHTML = `<span>${title}<br><span class="relationship">${relationship}</span></span>`;
-        
-        newRelationship.classList.add("tag");
-        
-        labelsList.appendChild(newRelationship);
-
-        titleInput.value = "";
-        relationshipInput.value = "";
+        checkObjectValidity(title) 
+            .then(function (isValid) {
+                if (isValid) {
+                    var relationshipObject = {
+                        title: title,
+                        relationship: relationship
+                    };
+            
+                    console.log(title);
+                    console.log(relationship);
+                    relationshipData.push(relationshipObject);
+            
+                    var labelsList = document.getElementById("relationList");
+                    var newRelationship = document.createElement("div");
+            
+                    newRelationship.innerHTML = `<span>${title}<br><span class="relationship">${relationship}</span></span>`;
+                    
+                    newRelationship.classList.add("tag");
+                    
+                    labelsList.appendChild(newRelationship);
+            
+                    titleInput.value = "";
+                    relationshipInput.value = "";
+                }else {
+                    alert("Invalid object relation." + title + "is not an existing object.")
+                }
+        })
+        .catch(function (error) {
+            console.error("Error checking title validity:", error);
+        });
     }
 }
 
+function checkObjectValidity(title) {
+    var url = '';
+
+    return fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: 'title=' + encodeURIComponent(title),
+    })
+    .then(function (response) {
+        if (!response.ok) {
+            throw new Error('Network response was not ok')
+        }
+        return response.json();
+    })
+    .then(function (data) {
+        return data.valid;
+    })
+}
 
 function submitForm() {
     console.log("Relationship Data:", relationshipData);

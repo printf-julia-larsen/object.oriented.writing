@@ -26,6 +26,13 @@ hr {
     text-align: center;
 }
 
+.warning {
+    margin-top: 5%;
+    color: #c91c1c;
+    font-size: 20px;
+    text-align: left;
+}
+
 .paragraph_wrapper {
     background-color: #fff;
     padding: 30px;

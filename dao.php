@@ -79,21 +79,47 @@ public function deleteObject ($objectID) {
     }
 }
 
-public function setObjectRelation($parentObjectID, $childObjectID, $relation) {
+public function getObjectIDByName($objectName, $userID) {
   try {
     $conn = $this->getConnection();
-    $saveQuery = "INSERT INTO ObjectRelations (parentObjectID, childObjectID, relation) 
-                  VALUES (:parentObjectID, :childObjectID, :relation)";
-    $q = $conn->prepare($saveQuery);
-    $q->bindParam(":parentObjectID", $parentObjectID);
-    $q->bindParam(":childObjectID", $childObjectID);
-    $q->bindParam(":relation", $relation);
 
-    $result = $q->execute();
-    return $result;
+    $query = $conn->prepare("SELECT objectID FROM ObjectMetadata WHERE title = :objectName");
+    $query->bindParam(':objectName', $objectName);
+    $query->execute();
+
+    $userID = $query->fetch(PDO::FETCH_ASSOC);
+
+    if (!$userID) {
+      return false;
+    }
+
+    return $userID;
 
   } catch (PDOException $e) {
-    return false;
+      return false;
+  }
+}
+public function setObjectRelation($parentObjectID, $childObjectID, $relation) {
+  try {
+      $conn = $this->getConnection();
+
+      $saveQuery = "INSERT INTO ObjectRelations (parentObjectID, childObjectID, relation) 
+                    VALUES (:parentObjectID, :childObjectID, :relation)";
+      $q = $conn->prepare($saveQuery);
+      $q->bindParam(":parentObjectID", $parentObjectID);
+      $q->bindParam(":childObjectID", $childObjectID);
+      $q->bindParam(":relation", $relation);
+
+      $result = $q->execute();
+
+      if (!$result) {
+        return false;
+      }
+
+      return $result;
+
+  } catch (PDOException $e) {
+      return false;
   }
 }
 
@@ -126,14 +152,17 @@ public function getObjectRelation($parentObjectID) {
           $q->bindParam(":additionalInfo", $additionalInfo);
   
           $result = $q->execute();
-
           $objectID = $conn->lastInsertId();
+
+          if (!$result) {
+            $_SESSION['error_message'] = "Error adding object!";
+            return false;
+          }
 
           $query = $conn->prepare("SELECT userID FROM users WHERE username = :username");
           $query->bindParam(':username', $username);
           $query->execute();
           $user = $query->fetch(PDO::FETCH_ASSOC);
-
 
           if ($user) {
             $userID = $user['userID'];
@@ -143,15 +172,61 @@ public function getObjectRelation($parentObjectID) {
             $ownerQuery->bindParam(":objectID", $objectID);
             $success = $ownerQuery->execute();
 
+            if (!$success) {
+              $_SESSION['error_message'] = "Error adding object owner!";
+              return false;
+            }
+
             if ($result && $success) {
-                return true;
+                return $objectID;
             }
         }
       } catch (PDOException $e) {
+          $_SESSION['error_message'] = "An exception occured.";
           return false;
       }
   }
 
+
+  public function validateObjectTitle($userID, $objTitle) {
+
+    if (!$userID) {
+      return false;
+    }
+
+    try {
+      $conn = $this->getConnection();
+
+      $query = $conn->prepare("SELECT * FROM ObjectMetadata WHERE title = :objTitle");
+      $query->bindParam(':objTitle', $objTitle);
+      $query->execute();
+
+      $object = $query->fetch(PDO::FETCH_ASSOC);
+
+      if (!$object) {
+        $_SESSION['error_message'] = "Could not find " . $objTitle;
+        return false;
+      }
+
+      $userObjs = $this->getUsersObjects($userID);
+
+      if (!$userObjs) {   
+        $_SESSION['error_message'] = "";
+        return false;
+      }
+
+      foreach ($userObjs as $userObj) {
+        if ($userObj['title'] === $objTitle){
+          return true;
+        }
+      }
+
+      return false;
+
+  } catch (PDOException $e) {
+      return false;
+  }
+}
 
   public function saveUser($username, $password)
   {
