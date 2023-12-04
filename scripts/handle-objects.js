@@ -6,12 +6,12 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log(objectRelation);
 
             var objectMetadata = JSON.parse(element.getAttribute('object-metadata'));
-            createDetailedDisplay(objectMetadata);
+            createDetailedDisplay(objectMetadata, objectRelation);
         });
     });
 });
 
-function createDetailedDisplay(objectMetadata) {
+function createDetailedDisplay(objectMetadata, objectRelation) {
     var containerElement = document.createElement('div');
     var elementId = "element_" + objectMetadata.objectID;
     console.log(elementId);
@@ -70,7 +70,10 @@ function createDetailedDisplay(objectMetadata) {
         createElement(objectMetadata.additionalInfo, "expanded-info"),
 
         objectMetadata.externalLinks ? createElement("External Links", "expanded-heading") : null,
-        createElement(objectMetadata.externalLinks, "expanded-info")
+        createElement(objectMetadata.externalLinks, "expanded-info"),
+
+       /* true ? createElement("Relationships", "expanded-heading") : null,
+        createElement("stuff", "expanded-info")*/
     ];
 
     elementsToAppend.forEach(function (element) {

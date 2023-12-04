@@ -79,20 +79,29 @@ public function deleteObject ($objectID) {
     }
 }
 
+public function getObjectIDByName($objectName, $userID) {
+  try {
+    $conn = $this->getConnection();
+
+    $query = $conn->prepare("SELECT objectID FROM ObjectMetadata WHERE title = :objectName");
+    $query->bindParam(':objectName', $objectName);
+    $query->execute();
+
+    $userID = $query->fetch(PDO::FETCH_ASSOC);
+
+    if (!$userID) {
+      return false;
+    }
+
+    return $userID;
+
+  } catch (PDOException $e) {
+      return false;
+  }
+}
 public function setObjectRelation($parentObjectID, $childObjectID, $relation) {
   try {
       $conn = $this->getConnection();
-
-      $checkQuery = "SELECT COUNT(*) FROM ObjectRelations WHERE parentObjectID = :parentObjectID AND childObjectID = :childObjectID";
-      $checkStmt = $conn->prepare($checkQuery);
-      $checkStmt->bindParam(":parentObjectID", $parentObjectID);
-      $checkStmt->bindParam(":childObjectID", $childObjectID);
-      $checkStmt->execute();
-      $count = $checkStmt->fetchColumn();
-
-      if ($count > 0) {
-          return true;
-      }
 
       $saveQuery = "INSERT INTO ObjectRelations (parentObjectID, childObjectID, relation) 
                     VALUES (:parentObjectID, :childObjectID, :relation)";
@@ -102,6 +111,11 @@ public function setObjectRelation($parentObjectID, $childObjectID, $relation) {
       $q->bindParam(":relation", $relation);
 
       $result = $q->execute();
+
+      if (!$result) {
+        return false;
+      }
+
       return $result;
 
   } catch (PDOException $e) {
