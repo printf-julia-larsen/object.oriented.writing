@@ -39,7 +39,7 @@ if (!$thisObjID) {
     $success = true;
 }
 
-if ($relationshipData && $success) {
+/*if ($relationshipData && $success) {
 
     foreach ($relationshipData as $relationshipObject) {
         
@@ -68,7 +68,7 @@ if ($relationshipData && $success) {
 }else {
     $_SESSION['error_message'] = "Could not save object.";
     $_SESSION["success"] = false;
-}
+}*/
 
 if ($success) {
     unset($_SESSION['error_message']);
